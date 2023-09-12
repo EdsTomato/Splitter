@@ -1,48 +1,28 @@
-= Praktikum
+= Splitter
 :icons: font
 :icon-set: fa
 :source-highlighter: rouge
 :experimental:
 
-== Organisatorisches
+Die Anwendung "Splitter" ist eine Softwarelösung, die entwickelt wurde, um gemeinsame Ausgaben zwischen Gruppen von Menschen gerecht aufzuteilen und transparent darzustellen. Sie ermöglicht es Benutzern, Gruppen zu erstellen und Mitglieder über ihren GitHub-Namen hinzuzufügen. Innerhalb dieser Gruppen können die Benutzer Ausgaben erfassen, die von der gesamten Gruppe oder von einzelnen Mitgliedern getätigt wurden.
 
-Die finden die URL für das Webex System auf http://propra.de/ws2223/ab899545cb7e0df[dieser Seite]. Wir hoffen, dass die Webex-URL über das ganze Praktikum über gleich bleibt, können aber nicht ausschließen, dass es Änderungen geben muss. 
+Die Anwendung verwendet folgenden Technologie-Stack:
 
-Wenn es wichtige Ankündigungen zum Praktikum gibt, werden wir diese sowohl im Diskussionsforum als auch auf der URL Seite online stellen. 
+- **Backend-Framework**: Die Anwendung wird mithilfe von Spring Boot entwickelt, um eine robuste und effiziente Backend-Logik zu implementieren.
 
-IMPORTANT: Verwenden Sie in Webex als Display-Name Ihren Namen und in Klammern dahinter das GitHub-Login. Beispiel: `William Bruce Rose (axl62)`.
+- **Datenbank**: PostgreSQL wird als Datenbank verwendet, wobei die Datenbank in einem Docker-Container betrieben wird. Dies ermöglicht die sichere und effiziente Speicherung von Informationen über Gruppen, Mitglieder, Ausgaben und Transaktionen.
 
-Sie können Ihren Namen in der Teilnehmerliste über den „Edit Display Name”-Menüpunkt ändern. In der App finden Sie den Menüpunkt durch Rechtsklick auf Ihren Namen, im Browser über die drei Punkte neben dem Namen.
+- **Datenbank-Tests**: Zur Sicherstellung der Datenbankfunktionalität werden Tests mit H2 durchgeführt, sodass sie auch ohne Docker-Container ausgeführt werden können.
 
-=== Aufgabenstellung
+- **Authentifizierung**: GitHub wird als OAuth-Provider für die Benutzerauthentifizierung verwendet, um sicherzustellen, dass nur autorisierte Benutzer auf die Anwendung zugreifen können.
 
-Die Beschreibung der Aufgabe finden Sie in link:aufgabe.adoc[diesem Dokument].
+- **Architektur**: Die Anwendung folgt der Onion-Architektur und verwendet taktische Domain-Driven-Design (DDD)-Muster, um eine klare und gut strukturierte Architektur zu gewährleisten.
 
-=== Ergänzungen zur Aufgabenstellung
+Die Anwendung bietet den Nutzern eine Übersicht über alle Gruppen, denen sie angehören. In der Detailansicht einer Gruppe werden alle getätigten Ausgaben und die beteiligten Personen angezeigt. Dabei werden Ausgaben, die den aktuellen Benutzer betreffen, hervorgehoben. Die Anwendung berechnet auch automatisch die notwendigen Transaktionen zwischen den Gruppenmitgliedern, um die Auslagen auszugleichen.
 
-Es gibt zwei geplante Ergänzungen zur Aufgabenstellung. Sie erhalten die erste Ergänzung (Beschreibung von Testszenarien) am 02.03.2023 vor Beginn der Praktikumszeit. Die zweite Ergänzung (Einbau einer neuen Funktionalität) erhalten Sie am 08.03.2023 vor Beginn der Praktikumszeit. 
+Zu einem bestimmten Zeitpunkt können Gruppen geschlossen werden, was bedeutet, dass keine weiteren Ausgaben erfasst werden können, aber die Details der Gruppe immer noch sichtbar sind.
 
-Die Ergänzungsaufgaben werden wir auf der http://propra.de/ws2223/ab899545cb7e0df[URL Seite] verlinken. 
-
-=== Deadlines 
-
-Wir beginnen mit einer Teilbegutachtung der Anwendung am 14.03.2023 ab 13:00 Uhr. Zu diesem Zeitpunkt muss die Anwendung bis auf die Persistenz fertig sein. Die komplette Anwendung muss am 17.03.2023 um 13:00 Uhr fertiggestellt sein. 
-
-== Fragen und Hilfestellungen
-
-Für Fragen gibt es zum einen die Diskussionsforen, die Sie unbedingt bei Fragen verwenden müssen, die auch für andere Teilnehmer:innen interessant seien könnten.
-
-* Fragen zu organisatoischen Themen stellen Sie bitte im Forum https://github.com/hhu-propra2-ws22/Organisation/discussions/categories/fragen-zur-organisation[Fragen zur Organisation].
-* Für Fragen zur Aufgabenstellung haben wir ein neues Forum https://github.com/hhu-propra2-ws22/Organisation/discussions/categories/fragen-zur-aufgabestellung[Fragen zur Aufgabenstellung] erstellt.
-* Wenn Sie Fragen zum Stoff der Vorlesung haben, stellen Sie diese bitte weiterhin im Forum https://github.com/hhu-propra2-ws22/Organisation/discussions/categories/fachliche-fragen[Fachliche Fragen]
-
-Außerdem werden Sie von unseren Tutor:innen regelmäßig besucht und haben dort ebenfalls die Gelegenheit, Fragen zu stellen. Kristin, Leonie und Jens kommen Sie auch gelegentlich besuchen oder helfen aus, wenn besonders schwierige Fragen auftreten sollten. 
-
-Bei Fragen, die Sie selber persönlich betreffen (zum Beispiel bei Krankmeldungen), wenden Sie sich bitte per Mail an mailto:propra@cs.hhu.de[propra@cs.hhu.de]. Stellen Sie dort bitte keine Fragen, die auch in den Foren geklärt werden könnten. 
-
-== Verhaltensregeln
-
-Wir erwarten von Ihnen einen respektvollen Umgang miteinander. Es gilt grundsätzlich bei uns der https://berlincodeofconduct.org/de/[Berlin Code of Conduct]. Die Tutor:innen haben die Aufgabe, die Einhaltung der Regeln zu überwachen und können bei Verstößen gegen den Verhaltenskodex Personen aus dem Praktikum ausschließen. Ein Praktikumsausschluss hat zur Folge, dass Sie das Modul in diesem Semester nicht mehr abschließen können. 
+Insgesamt erleichtert "Splitter" die Organisation und Abrechnung gemeinsamer Ausgaben in verschiedenen Gruppenszenarien wie Wohngemeinschaften oder Reisegruppen.
 
 
 == Anleitung zur Konfiguration und zum Starten der Anwendung
