@@ -18,7 +18,7 @@ Die Anwendung verwendet folgenden Technologie-Stack:
 
 - **Architektur**: Die Anwendung folgt der Onion-Architektur und verwendet taktische Domain-Driven-Design (DDD)-Muster, um eine klare und gut strukturierte Architektur zu gewährleisten.
 
-Die Anwendung bietet den Nutzern eine Übersicht über alle Gruppen, denen sie angehören. In der Detailansicht einer Gruppe werden alle getätigten Ausgaben und die beteiligten Personen angezeigt. Dabei werden Ausgaben, die den aktuellen Benutzer betreffen, hervorgehoben. Die Anwendung berechnet auch automatisch die notwendigen Transaktionen zwischen den Gruppenmitgliedern, um die Auslagen auszugleichen.
+Splitter bietet den Nutzern eine Übersicht über alle Gruppen, denen sie angehören. In der Detailansicht einer Gruppe werden alle getätigten Ausgaben und die beteiligten Personen angezeigt. Dabei werden Ausgaben, die den aktuellen Benutzer betreffen, hervorgehoben. Die Anwendung berechnet auch automatisch die notwendigen Transaktionen zwischen den Gruppenmitgliedern, um die Auslagen auszugleichen.
 
 Zu einem bestimmten Zeitpunkt können Gruppen geschlossen werden, was bedeutet, dass keine weiteren Ausgaben erfasst werden können, aber die Details der Gruppe immer noch sichtbar sind.
 
