@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" data-bs-theme="dark" >
+<head>
+    <meta charset="UTF-8">
+    <title>Splitter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+          crossorigin="anonymous">
+    <link rel="icon" th:href="@{/images/SplitterIcon.ico}">
+</head>
+<body>
+    <div>
+        <img th:src="@{/images/SplitterLogo.png}" width="325" height="247" class="rounded mx-auto d-block" alt="Splitter">
+    </div>
+    <div class="container-md">
+            <div class="row">
+                <div class="col">
+                    <p class="h3">Gruppe erstellen : </p>
+                </div>
+            </div>
+            <div class="row gy-2 gx-2">
+                <div class="col-6">
+                    <form method="post" action="#" th:action="@{/}" th:object="${gruppenForm}">
+                        <div class="mb-2">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" >Beschreibung : </label>
+                                <input class="form-control border-primary"
+                                       id="beschreibungid"
+                                       maxlength="40"
+                                       th:field="*{beschreibung}"
+                                       type="text"
+                                >
+                                <button type="submit" class="btn btn-primary">Erstellen</button>
+                            </div>
+                            <small class="text-danger" th:if="${#fields.hasErrors('beschreibung')}" th:errors="*{beschreibung}">
+                                DANGER TEST
+                            </small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row gy-2 gx-2">
+                <div th:if="${!myOffeneGruppenList.isEmpty()}" class="col-4">
+                    <p class="h4">Offene Gruppen : </p>
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item" th:each="gruppe : ${myOffeneGruppenList}">
+                                <a type="button"
+                                        class="btn btn-warning"
+                                        th:href="@{/detail/{ID} (ID = ${gruppe.getId()})}"
+                                        th:text="${gruppe.getBeschreibung()}">
+                                    Gruppe 1
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div th:if="${!myGeschlosseneGruppenList.isEmpty()}" class="col-4">
+                    <p class="h4">Geschlossene Gruppen : </p>
+                        <ul class="list-group">
+                            <li th:each="gruppe : ${myGeschlosseneGruppenList}" class="list-group-item">
+                                <a type="button"
+                                        class="btn btn-secondary"
+                                        th:href="@{/detail/{ID} (ID = ${gruppe.getId()})}"
+                                        th:text="${gruppe.getBeschreibung()}">
+                                    Gruppe 1
+                                </a>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

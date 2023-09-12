@@ -1,0 +1,19 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+  datasource:
+    password: ${JDBC_PASS}
+    username: ${JDBC_USER}
+    url: jdbc:postgresql://localhost:5432/splitter
+
+server:
+  port: 9000
+logging:
+  level:
+    sql: trace
+
